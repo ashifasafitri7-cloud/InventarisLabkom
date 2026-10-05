@@ -12,21 +12,15 @@ import java.util.Scanner;
  */
 public class InvestarisLabKom {
 
-    public static void cariBarang(
-            String nama,
-            Barang[] daftarBarang,
-            int jumlahBarang) {
+    public static void cariBarang(String nama, Barang[] daftarBarang, int jumlahBarang) {
 
-        System.out.println(
-                "Mencari barang dengan Nama (Teks): " + nama
-        );
+        System.out.println("Mencari barang dengan Nama (Teks): " + nama);
 
         boolean ditemukan = false;
 
         for (int i = 0; i < jumlahBarang; i++) {
 
-            if (daftarBarang[i]
-                    .getNama()
+            if (daftarBarang[i].getNama()
                     .equalsIgnoreCase(nama)) {
 
                 daftarBarang[i].tampilkanInfo();
@@ -40,21 +34,15 @@ public class InvestarisLabKom {
     }
 
     public static void cariBarang(
-            int tahunPembelian,
-            Barang[] daftarBarang,
-            int jumlahBarang) {
+            int tahunPembelian, Barang[] daftarBarang, int jumlahBarang) {
 
-        System.out.println(
-                "Mencari barang dengan Tahun Pembelian: "
-                + tahunPembelian
-        );
+        System.out.println("Mencari barang dengan Tahun Pembelian: "+ tahunPembelian);
 
         boolean ditemukan = false;
 
         for (int i = 0; i < jumlahBarang; i++) {
 
-            if (daftarBarang[i]
-                    .getTahunPembelian() == tahunPembelian) {
+            if (daftarBarang[i].getTahunPembelian() == tahunPembelian) {
 
                 daftarBarang[i].tampilkanInfo();
                 ditemukan = true;
@@ -101,145 +89,97 @@ public class InvestarisLabKom {
 
                         if (jumlahBarang < daftarBarang.length) {
 
-                            System.out.println(
-                                    "\n-- Pilih Jenis Barang --"
-                            );
+                            System.out.println("\n-- Pilih Jenis Barang --");
 
-                            System.out.println(
-                                    "1. Komputer"
-                            );
+                            System.out.println("1. Komputer");
 
-                            System.out.println(
-                                    "2. Monitor"
-                            );
+                            System.out.println("2. Monitor");
 
-                            System.out.println(
-                                    "3. Printer"
-                            );
+                            System.out.println("3. Printer");
 
-                            System.out.print(
-                                    "Pilihan (1/2/3): "
-                            );
+                            System.out.println("4. Keyboard");
+
+                            System.out.print("Pilihan (1/2/3/4): ");
 
                             int jenis = scanner.nextInt();
                             scanner.nextLine();
 
-                            System.out.print(
-                                    "Masukkan Nama Barang: "
-                            );
+                            System.out.print("Masukkan Nama Barang: ");
 
-                            String namaBaru =
-                                    scanner.nextLine();
+                            String namaBaru = scanner.nextLine();
 
-                            System.out.print(
-                                    "Masukkan Merek: "
-                            );
+                            System.out.print("Masukkan Merek: ");
 
-                            String merekBaru =
-                                    scanner.nextLine();
+                            String merekBaru = scanner.nextLine();
 
-                            System.out.print(
-                                    "Masukkan Tahun Pembelian: "
-                            );
+                            System.out.print("Masukkan Tahun Pembelian: ");
 
-                            int tahunBaru =
-                                    scanner.nextInt();
+                            int tahunBaru = scanner.nextInt();
 
                             scanner.nextLine();
 
                             if (jenis == 1) {
 
-                                System.out.print(
-                                        "Masukkan Processor: "
-                                );
+                                System.out.print("Masukkan Processor: ");
 
                                 String processor =
                                         scanner.nextLine();
 
-                                daftarBarang[jumlahBarang] =
-                                        new Komputer(
-                                                namaBaru,
-                                                merekBaru,
-                                                tahunBaru,
-                                                processor
-                                        );
+                                daftarBarang[jumlahBarang] = new Komputer(namaBaru, merekBaru, tahunBaru, processor);
 
                             } else if (jenis == 2) {
 
-                                System.out.print(
-                                        "Masukkan Ukuran Layar (Inch): "
-                                );
+                                System.out.print("Masukkan Ukuran Layar (Inch): ");
 
-                                int ukuran =
-                                        scanner.nextInt();
+                                int ukuran = scanner.nextInt();
 
                                 scanner.nextLine();
 
-                                daftarBarang[jumlahBarang] =
-                                        new Monitor(
-                                                namaBaru,
-                                                merekBaru,
-                                                tahunBaru,
-                                                ukuran
-                                        );
+                                daftarBarang[jumlahBarang] = new Monitor(namaBaru, merekBaru, tahunBaru, ukuran);
 
                             } else if (jenis == 3) {
 
-                                System.out.print(
-                                        "Masukkan Jenis Printer: "
-                                );
+                                System.out.print("Masukkan Jenis Printer: ");
 
-                                String jenisPrinter =
-                                        scanner.nextLine();
+                                String jenisPrinter = scanner.nextLine();
 
-                                daftarBarang[jumlahBarang] =
-                                        new Printer(
-                                                namaBaru,
-                                                merekBaru,
-                                                tahunBaru,
-                                                jenisPrinter
-                                        );
+                                daftarBarang[jumlahBarang] = new Printer(namaBaru, merekBaru, tahunBaru, jenisPrinter);
+
+                            } else if (jenis == 4) {
+
+                                System.out.print("Masukkan Jenis Keyboard: ");
+
+                                String jenisKeyboard = scanner.nextLine();
+
+                                daftarBarang[jumlahBarang] = new Keyboard(namaBaru, merekBaru, tahunBaru, jenisKeyboard);
 
                             } else {
 
-                                System.out.println(
-                                        "Pilihan jenis barang tidak valid."
-                                );
-
+                                System.out.println("Pilihan jenis barang tidak valid.");
                                 break;
                             }
 
                             jumlahBarang++;
 
-                            System.out.println(
-                                    "Sukses! Barang berhasil ditambahkan."
-                            );
+                            System.out.println("Sukses! Barang berhasil ditambahkan.");
 
-                            System.out.print(
-                                    "Tekan Enter untuk melanjutkan..."
-                            );
+                            System.out.print("Tekan Enter untuk melanjutkan...");
 
                             scanner.nextLine();
 
                         } else {
 
-                            System.out.println(
-                                    "Maaf, kapasitas inventaris sudah penuh!"
-                            );
+                            System.out.println("Maaf, kapasitas inventaris sudah penuh!");
                         }
                     }
 
                     case 2 -> {
 
-                        System.out.println(
-                                "\n-- Daftar Barang di Labkom --"
-                        );
+                        System.out.println("\n-- Daftar Barang di Labkom --");
 
                         if (jumlahBarang == 0) {
 
-                            System.out.println(
-                                    "Belum ada barang yang tersimpan."
-                            );
+                            System.out.println("Belum ada barang yang tersimpan.");
 
                         } else {
 
@@ -247,118 +187,76 @@ public class InvestarisLabKom {
                                     i < jumlahBarang;
                                     i++) {
 
-                                System.out.print(
-                                        (i + 1) + ". "
-                                );
+                                System.out.print((i + 1) + ". ");
 
                                 daftarBarang[i]
                                         .tampilkanInfo();
 
-                                simulasiPenggunaan(
-                                        daftarBarang[i]
-                                );
+                                simulasiPenggunaan(daftarBarang[i]);
 
                                 System.out.println("");
                             }
 
-                            System.out.println(
-                                    "\nTotal Barang yang Terdaftar: "
-                                    + Barang.totalBarangBerhasilDibuat
-                            );
+                            System.out.println("\nTotal Barang yang Terdaftar: "+ Barang.totalBarangBerhasilDibuat);
                         }
 
-                        System.out.print(
-                                "Tekan Enter untuk melanjutkan..."
-                        );
+                        System.out.print("Tekan Enter untuk melanjutkan...");
 
                         scanner.nextLine();
                     }
 
                     case 3 -> {
 
-                        System.out.println(
-                                "\n-- Fitur Cari Barang --"
-                        );
+                        System.out.println("\n-- Fitur Cari Barang --");
 
-                        System.out.println(
-                                "1. Cari berdasarkan Nama Barang (String)"
-                        );
+                        System.out.println("1. Cari berdasarkan Nama Barang (String)");
 
-                        System.out.println(
-                                "2. Cari berdasarkan Tahun Pembelian (Integer)"
-                        );
+                        System.out.println("2. Cari berdasarkan Tahun Pembelian (Integer)");
 
-                        System.out.print(
-                                "Pilih (1/2): "
-                        );
+                        System.out.print("Pilih (1/2): ");
 
-                        int modeCari =
-                                scanner.nextInt();
+                        int modeCari = scanner.nextInt();
 
                         scanner.nextLine();
 
                         if (modeCari == 1) {
 
-                            System.out.print(
-                                    "Masukkan Nama Barang: "
-                            );
+                            System.out.print("Masukkan Nama Barang: ");
 
-                            String kataKunci =
-                                    scanner.nextLine();
+                            String kataKunci = scanner.nextLine();
 
-                            cariBarang(
-                                    kataKunci,
-                                    daftarBarang,
-                                    jumlahBarang
-                            );
+                            cariBarang(kataKunci, daftarBarang, jumlahBarang);
 
                         } else if (modeCari == 2) {
 
-                            System.out.print(
-                                    "Masukkan Tahun Pembelian: "
-                            );
+                            System.out.print("Masukkan Tahun Pembelian: ");
 
-                            int angkaKunci =
-                                    scanner.nextInt();
+                            int angkaKunci = scanner.nextInt();
 
                             scanner.nextLine();
 
-                            cariBarang(
-                                    angkaKunci,
-                                    daftarBarang,
-                                    jumlahBarang
-                            );
+                            cariBarang(angkaKunci, daftarBarang, jumlahBarang);
 
                         } else {
 
-                            System.out.println(
-                                    "Pilihan tidak valid."
-                            );
+                            System.out.println("Pilihan tidak valid.");
                         }
 
-                        System.out.print(
-                                "Tekan Enter untuk melanjutkan..."
-                        );
+                        System.out.print("Tekan Enter untuk melanjutkan...");
 
                         scanner.nextLine();
                     }
 
                     case 4 -> {
 
-                        System.out.println(
-                                "Terima kasih telah menggunakan "
-                                + "Sistem Inventaris Labkom!"
-                        );
+                        System.out.println("Terima kasih telah menggunakan " + "Sistem Inventaris Labkom!");
 
                         isRunning = false;
                     }
 
                     default -> {
 
-                        System.out.println(
-                                "Pilihan tidak valid. "
-                                + "Silahkan masukkan angka 1-4."
-                        );
+                        System.out.println("Pilihan tidak valid. " + "Silahkan masukkan angka 1-4.");
 
                         scanner.nextLine();
                     }
