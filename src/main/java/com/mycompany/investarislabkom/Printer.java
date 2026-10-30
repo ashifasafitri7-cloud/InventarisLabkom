@@ -8,28 +8,35 @@ package com.mycompany.investarislabkom;
  *
  * @author Ashifa Safitri
  */
-public class Printer extends Barang {
-    
+public class Printer extends Barang implements DapatDinilai {
+
     private String jenisPrinter;
 
-    public Printer(
-            String nama,
-            String merek,
-            int tahunPembelian,
-            String jenisPrinter) {
-
+    public Printer(String nama, String merek, int tahunPembelian, String jenisPrinter) {
         super(nama, merek, tahunPembelian);
         this.jenisPrinter = jenisPrinter;
     }
 
     @Override
+    public void cekKondisi() {
+        System.out.println("Kondisi printer: periksa tinta dan pastikan printer dapat mencetak.");
+    }
+
+    @Override
+    public void beriPenilaian() {
+        System.out.println("Penilaian printer: periksa kualitas hasil cetak dan kondisi tinta.");
+    }
+
+    @Override
     public void tampilkanInfo() {
-        System.out.printf(
-                "[Printer]   Nama: %-15s | Merek: %-10s | Tahun: %d | Jenis: %s%n", this.nama, this.merek, this.tahunPembelian, this.jenisPrinter);
+        System.out.println("Nama Barang      : " + getNama());
+        System.out.println("Merek            : " + merek);
+        System.out.println("Tahun Pembelian  : " + getTahunPembelian());
+        System.out.println("Jenis Printer    : " + jenisPrinter);
     }
 
     @Override
     public void caraPenggunaan() {
-        System.out.println("-> Info Penggunaan: Printer digunakan untuk mencetak dokumen dan hasil praktikum.");
+        System.out.println("Printer digunakan untuk mencetak dokumen ke kertas.");
     }
 }

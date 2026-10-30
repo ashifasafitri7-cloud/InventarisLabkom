@@ -9,8 +9,8 @@ package com.mycompany.investarislabkom;
  *
  * @author Ashifa Safitri
  */
-public class Barang {
-    
+public abstract class Barang {
+
     protected String nama;
     protected String merek;
     protected int tahunPembelian;
@@ -21,7 +21,6 @@ public class Barang {
         this.nama = nama;
         this.merek = merek;
         this.tahunPembelian = tahunPembelian;
-
         totalBarangBerhasilDibuat++;
     }
 
@@ -33,18 +32,13 @@ public class Barang {
         return this.tahunPembelian;
     }
 
+    public abstract void cekKondisi();
+
     public void tampilkanInfo() {
-        System.out.printf(
-                "Nama: %-20s | Merek: %-15s | Tahun: %d%n",
-                this.nama,
-                this.merek,
-                this.tahunPembelian
-        );
+        System.out.printf("Nama: %-20s | Merek: %-15s | Tahun: %d%n", nama, merek, tahunPembelian);
     }
 
     public void caraPenggunaan() {
-        System.out.println(
-                "Barang digunakan untuk kebutuhan operasional laboratorium."
-        );
+        System.out.println("Barang digunakan untuk kebutuhan operasional laboratorium.");
     }
 }
