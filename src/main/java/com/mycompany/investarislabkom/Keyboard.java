@@ -10,38 +10,29 @@ package com.mycompany.investarislabkom;
  */
 public class Keyboard extends Barang implements DapatDinilai, DapatDipinjam {
 
-    private String jenisKeyboard;
+     private String jenisKeyboard;
 
-    public Keyboard(String nama, String merek, int tahunPembelian, String jenisKeyboard) {
+    public Keyboard(String nama, String merek,
+                    int tahunPembelian, String jenisKeyboard) {
         super(nama, merek, tahunPembelian);
         this.jenisKeyboard = jenisKeyboard;
     }
-
     @Override
     public void cekKondisi() {
-        System.out.println("Kondisi keyboard: periksa tombol dan pastikan keyboard berfungsi.");
+        System.out.println("Kondisi keyboard: Baik.");
+        System.out.println("Jenis keyboard: " + jenisKeyboard);
     }
-
-    @Override
-    public void beriPenilaian() {
-        System.out.println("Penilaian keyboard: periksa respons tombol dan kenyamanan penggunaan.");
-    }
-
     @Override
     public void prosesPeminjaman() {
-        System.out.println("Peminjaman keyboard sedang diproses oleh petugas laboratorium.");
+        System.out.println("Keyboard berhasil diproses untuk peminjaman.");
     }
-
+    @Override
+    public void beriPenilaian() {
+        System.out.println("Penilaian keyboard: 9/10.");
+    }
     @Override
     public void tampilkanInfo() {
-        System.out.println("Nama Barang      : " + getNama());
-        System.out.println("Merek            : " + merek);
-        System.out.println("Tahun Pembelian  : " + getTahunPembelian());
-        System.out.println("Jenis Keyboard   : " + jenisKeyboard);
-    }
-
-    @Override
-    public void caraPenggunaan() {
-        System.out.println("Keyboard digunakan untuk memasukkan karakter melalui tombol.");
+        super.tampilkanInfo();
+        System.out.println("Jenis Keyboard: " + jenisKeyboard);
     }
 }

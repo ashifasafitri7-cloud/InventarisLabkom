@@ -4,21 +4,24 @@
  */
 package com.mycompany.investarislabkom;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ashifa Safitri
  */
-public class RuangPenyimpanan {
+public class RuangPenyimpanan implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String namaRuang;
     private String lokasi;
     private int kapasitas;
-
+    
     public RuangPenyimpanan() {
         namaRuang = "Ruang Penyimpanan Labkom";
         lokasi = "Lantai 2";
         kapasitas = 50;
     }
-
     public void tampilkanInfo() {
         System.out.println("\n===== INFORMASI RUANG PENYIMPANAN =====");
         System.out.println("Nama Ruangan : " + namaRuang);

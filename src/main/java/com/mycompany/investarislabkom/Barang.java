@@ -4,12 +4,14 @@ package com.mycompany.investarislabkom;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
+import java.io.Serializable;
 /**
  *
  * @author Ashifa Safitri
  */
-public abstract class Barang {
+public abstract class Barang implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     protected String nama;
     protected String merek;
@@ -23,22 +25,20 @@ public abstract class Barang {
         this.tahunPembelian = tahunPembelian;
         totalBarangBerhasilDibuat++;
     }
-
     public String getNama() {
-        return this.nama;
+        return nama;
     }
-
     public int getTahunPembelian() {
-        return this.tahunPembelian;
+        return tahunPembelian;
     }
-
     public abstract void cekKondisi();
 
     public void tampilkanInfo() {
-        System.out.printf("Nama: %-20s | Merek: %-15s | Tahun: %d%n", nama, merek, tahunPembelian);
+        System.out.printf( "Nama: %-20s | Merek: %-15s | Tahun: %d%n", nama, merek, tahunPembelian
+        );
     }
-
     public void caraPenggunaan() {
-        System.out.println("Barang digunakan untuk kebutuhan operasional laboratorium.");
+        System.out.println( "Barang digunakan untuk kebutuhan operasional laboratorium."
+        );
     }
 }

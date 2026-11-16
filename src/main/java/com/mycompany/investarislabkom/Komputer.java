@@ -8,35 +8,31 @@ package com.mycompany.investarislabkom;
  *
  * @author Ashifa Safitri
  */
-public class Komputer extends Barang implements DapatDinilai {
+public class Komputer extends Barang implements DapatDipinjam, DapatDinilai {
 
     private String processor;
 
-    public Komputer(String nama, String merek, int tahunPembelian, String processor) {
+    public Komputer(String nama, String merek,
+                    int tahunPembelian, String processor) {
         super(nama, merek, tahunPembelian);
         this.processor = processor;
     }
-
     @Override
     public void cekKondisi() {
-        System.out.println("Kondisi komputer: periksa processor dan pastikan komputer dapat menyala.");
+        System.out.println("Kondisi komputer: Baik.");
+        System.out.println("Processor: " + processor);
     }
-
+    @Override
+    public void prosesPeminjaman() {
+        System.out.println("Komputer berhasil diproses untuk peminjaman.");
+    }
     @Override
     public void beriPenilaian() {
-        System.out.println("Penilaian komputer: periksa kinerja processor dan kondisi perangkat.");
+        System.out.println("Penilaian komputer: 9/10.");
     }
-
     @Override
     public void tampilkanInfo() {
-        System.out.println("Nama Barang      : " + getNama());
-        System.out.println("Merek            : " + merek);
-        System.out.println("Tahun Pembelian  : " + getTahunPembelian());
-        System.out.println("Processor        : " + processor);
-    }
-
-    @Override
-    public void caraPenggunaan() {
-        System.out.println("Komputer digunakan untuk menjalankan aplikasi dan mengolah data.");
+        super.tampilkanInfo();
+        System.out.println("Processor: " + processor);
     }
 }

@@ -4,11 +4,15 @@
  */
 package com.mycompany.investarislabkom;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Ashifa Safitri
  */
-public class Petugas {
+public class Petugas implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String id;
     private String nama;
@@ -19,19 +23,15 @@ public class Petugas {
         this.nama = nama;
         this.jabatan = jabatan;
     }
-
     public String getId() {
         return id;
     }
-
     public String getNama() {
         return nama;
     }
-
     public String getJabatan() {
         return jabatan;
     }
-
     public void tampilkanInfo() {
         System.out.println("ID Petugas : " + id);
         System.out.println("Nama       : " + nama);

@@ -8,35 +8,31 @@ package com.mycompany.investarislabkom;
  *
  * @author Ashifa Safitri
  */
-public class Monitor extends Barang implements DapatDipinjam {
+public class Monitor extends Barang implements DapatDipinjam, DapatDinilai {
 
-    private int ukuranLayar;
+    private int ukuran;
 
-    public Monitor(String nama, String merek, int tahunPembelian, int ukuranLayar) {
+    public Monitor(String nama, String merek,
+                   int tahunPembelian, int ukuran) {
         super(nama, merek, tahunPembelian);
-        this.ukuranLayar = ukuranLayar;
+        this.ukuran = ukuran;
     }
-
     @Override
     public void cekKondisi() {
-        System.out.println("Kondisi monitor: periksa layar dan pastikan tampilan terlihat jelas.");
+        System.out.println("Kondisi monitor: Baik.");
+        System.out.println("Ukuran: " + ukuran + " inci");
     }
-
     @Override
     public void prosesPeminjaman() {
-        System.out.println("Peminjaman monitor sedang diproses oleh petugas laboratorium.");
+        System.out.println("Monitor berhasil diproses untuk peminjaman.");
     }
-
+    @Override
+    public void beriPenilaian() {
+        System.out.println("Penilaian monitor: 8/10.");
+    }
     @Override
     public void tampilkanInfo() {
-        System.out.println("Nama Barang      : " + getNama());
-        System.out.println("Merek            : " + merek);
-        System.out.println("Tahun Pembelian  : " + getTahunPembelian());
-        System.out.println("Ukuran Layar     : " + ukuranLayar + " inch");
-    }
-
-    @Override
-    public void caraPenggunaan() {
-        System.out.println("Monitor digunakan untuk menampilkan hasil keluaran komputer.");
+        super.tampilkanInfo();
+        System.out.println("Ukuran: " + ukuran + " inci");
     }
 }
